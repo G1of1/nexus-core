@@ -4,14 +4,17 @@ from nexus.models.document import Document
 from nexus.pipeline.ingestion import IngestionPipeline
 from nexus.pipeline.rag import RAGEngine, RAGResponse
 from nexus.processing.loaders import DocumentLoader, LoadedDocument
-from nexus.providers.embeddings.gemini import GeminiEmbeddingProvider
 from nexus.providers.embeddings.mock import MockEmbeddingProvider
-from nexus.providers.llm.gemini import GeminiLLMProvider
 from nexus.providers.llm.mock import MockLLMProvider
 from nexus.providers.vectorstore.memory import InMemoryVectorStore
-from nexus.providers.vectorstore.qdrant import QdrantVectorStore
+
 settings = NexusSettings()
-engine = RAGEngine(vector_store=QdrantVectorStore(settings=settings), embedding_provider=GeminiEmbeddingProvider(settings=settings), llm_provider=GeminiLLMProvider(settings=settings))
+engine = RAGEngine(
+    vector_store=InMemoryVectorStore(),
+    embedding_provider=MockEmbeddingProvider(dimension=settings.vector_size),
+    llm_provider=MockLLMProvider(),
+    settings=settings,
+)
 
 
 def load_document(path: str) -> LoadedDocument:
