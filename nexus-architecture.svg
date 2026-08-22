@@ -1,0 +1,98 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="1200" viewBox="0 0 1800 1200">
+  <rect width="1800" height="1200" fill="#ffffff"/>
+  <text x="900" y="60" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="36" font-weight="700" fill="#0f172a">Nexus Core — System Design and Architecture</text>
+
+  <rect x="50" y="110" width="260" height="150" rx="16" fill="#f8fafc" stroke="#475569" stroke-width="2"/>
+  <text x="180" y="145" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="20" font-weight="700" fill="#0f172a">External Consumers</text>
+  <text x="180" y="182" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="600" fill="#0f172a">API / CLI / Worker / App</text>
+  <text x="180" y="210" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#334155">calls RAGEngine methods</text>
+
+  <rect x="50" y="320" width="260" height="170" rx="16" fill="#f8fafc" stroke="#475569" stroke-width="2"/>
+  <text x="180" y="355" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="20" font-weight="700" fill="#0f172a">Configuration</text>
+  <text x="180" y="390" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="600" fill="#0f172a">nexus.config</text>
+  <text x="180" y="418" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#334155">NEXUS_* environment vars</text>
+  <text x="180" y="442" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#334155">Gemini, Qdrant, chunking</text>
+
+  <rect x="430" y="110" width="420" height="520" rx="18" fill="#e0f2fe" stroke="#0284c7" stroke-width="2.5"/>
+  <text x="640" y="145" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="20" font-weight="700" fill="#0f172a">RAG Engine</text>
+  <text x="640" y="180" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="600" fill="#0f172a">nexus.pipeline.rag.RAGEngine</text>
+
+  <rect x="460" y="250" width="360" height="120" rx="16" fill="#ffffff" stroke="#0284c7" stroke-width="2"/>
+  <text x="640" y="286" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="20" font-weight="700" fill="#0f172a">IngestionPipeline</text>
+  <text x="640" y="318" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#334155">load → chunk → embed → store</text>
+  <text x="640" y="340" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#334155">ingest_file / bytes / text</text>
+
+  <rect x="460" y="405" width="360" height="120" rx="16" fill="#ffffff" stroke="#0284c7" stroke-width="2"/>
+  <text x="640" y="441" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="20" font-weight="700" fill="#0f172a">Retriever</text>
+  <text x="640" y="473" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#334155">embed query → search → rerank</text>
+  <text x="640" y="495" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#334155">query / query_stream</text>
+
+  <rect x="900" y="110" width="300" height="220" rx="18" fill="#fef3c7" stroke="#d97706" stroke-width="2.5"/>
+  <text x="1050" y="145" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="20" font-weight="700" fill="#0f172a">Provider Interfaces</text>
+  <text x="1050" y="178" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="600" fill="#0f172a">nexus.providers.base</text>
+  <text x="1050" y="208" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#334155">EmbeddingProvider</text>
+  <text x="1050" y="230" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#334155">LLMProvider</text>
+  <text x="1050" y="252" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#334155">VectorStore</text>
+  <text x="1050" y="274" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#334155">RerankerProvider</text>
+
+  <rect x="1260" y="110" width="260" height="220" rx="18" fill="#dcfce7" stroke="#16a34a" stroke-width="2.5"/>
+  <text x="1390" y="145" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="20" font-weight="700" fill="#0f172a">Vector Store</text>
+  <text x="1390" y="178" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="600" fill="#0f172a">QdrantVectorStore</text>
+  <text x="1390" y="208" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#334155">stores embeddings</text>
+  <text x="1390" y="230" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#334155">metadata and similarity search</text>
+
+  <rect x="900" y="370" width="620" height="210" rx="18" fill="#ecfeff" stroke="#0891b2" stroke-width="2.5"/>
+  <text x="1210" y="405" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="20" font-weight="700" fill="#0f172a">Processing Layer + Domain Models</text>
+
+  <rect x="930" y="430" width="180" height="110" rx="12" fill="#f8fafc" stroke="#475569" stroke-width="2"/>
+  <text x="1020" y="466" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="600" fill="#0f172a">DocumentLoader</text>
+  <text x="1020" y="489" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#334155">PDF / TXT / MD / DOCX</text>
+  <text x="1020" y="510" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#334155">LangChain extraction</text>
+
+  <rect x="1135" y="430" width="170" height="110" rx="12" fill="#f8fafc" stroke="#475569" stroke-width="2"/>
+  <text x="1220" y="466" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="600" fill="#0f172a">DocumentChunker</text>
+  <text x="1220" y="489" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#334155">chunk_text + chunk_document</text>
+  <text x="1220" y="510" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#334155">configurable overlap</text>
+
+  <rect x="1335" y="430" width="150" height="110" rx="12" fill="#f8fafc" stroke="#475569" stroke-width="2"/>
+  <text x="1410" y="466" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="600" fill="#0f172a">Models</text>
+  <text x="1410" y="489" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#334155">Document</text>
+  <text x="1410" y="510" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#334155">Chunk / SearchResult</text>
+
+  <rect x="900" y="630" width="620" height="160" rx="18" fill="#f5f3ff" stroke="#7c3aed" stroke-width="2.5"/>
+  <text x="1210" y="665" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="20" font-weight="700" fill="#0f172a">Generation + Evaluation</text>
+
+  <rect x="930" y="690" width="180" height="70" rx="12" fill="#f8fafc" stroke="#475569" stroke-width="2"/>
+  <text x="1020" y="722" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="600" fill="#0f172a">PromptManager</text>
+  <text x="1020" y="742" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#334155">system + context prompts</text>
+
+  <rect x="1150" y="690" width="190" height="70" rx="12" fill="#f8fafc" stroke="#475569" stroke-width="2"/>
+  <text x="1245" y="722" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="600" fill="#0f172a">Gemini LLM Provider</text>
+  <text x="1245" y="742" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#334155">generate + stream answers</text>
+
+  <rect x="1370" y="690" width="120" height="70" rx="12" fill="#f8fafc" stroke="#475569" stroke-width="2"/>
+  <text x="1430" y="722" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="600" fill="#0f172a">Evaluation</text>
+  <text x="1430" y="742" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#334155">metrics + scoring</text>
+
+  <rect x="60" y="620" width="330" height="170" rx="16" fill="#f8fafc" stroke="#475569" stroke-width="2"/>
+  <text x="225" y="655" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="20" font-weight="700" fill="#0f172a">Runtime Data Flow</text>
+  <text x="225" y="690" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#334155">1. Files loaded into documents</text>
+  <text x="225" y="712" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#334155">2. Embeddings indexed in vector store</text>
+  <text x="225" y="734" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#334155">3. Query retrieves context</text>
+  <text x="225" y="756" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#334155">4. Gemini produces final answer</text>
+
+  <line x1="310" y1="185" x2="430" y2="185" stroke="#334155" stroke-width="3" marker-end="url(#arrow)"/>
+  <line x1="310" y1="405" x2="430" y2="405" stroke="#334155" stroke-width="3" marker-end="url(#arrow)"/>
+  <line x1="850" y1="220" x2="900" y2="220" stroke="#334155" stroke-width="3" marker-end="url(#arrow)"/>
+  <line x1="1200" y1="220" x2="1260" y2="220" stroke="#334155" stroke-width="3" marker-end="url(#arrow)"/>
+  <line x1="850" y1="470" x2="900" y2="470" stroke="#334155" stroke-width="3" marker-end="url(#arrow)"/>
+  <line x1="850" y1="710" x2="900" y2="710" stroke="#334155" stroke-width="3" marker-end="url(#arrow)"/>
+  <line x1="390" y1="705" x2="430" y2="705" stroke="#334155" stroke-width="3" marker-end="url(#arrow)"/>
+  <line x1="430" y1="705" x2="430" y2="310" stroke="#334155" stroke-width="3" marker-end="url(#arrow)"/>
+
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#334155"/>
+    </marker>
+  </defs>
+</svg>

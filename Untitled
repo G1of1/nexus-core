@@ -1,0 +1,10 @@
+# Nexus Core Configuration
+NEXUS_QDRANT_URL=http://localhost:6333
+NEXUS_QDRANT_COLLECTION=nexus_documents
+NEXUS_OPENAI_API_KEY=sk-your-key-here
+NEXUS_EMBEDDING_MODEL=text-embedding-3-small
+NEXUS_LLM_MODEL=gpt-4o-mini
+NEXUS_CHUNK_SIZE=512
+NEXUS_CHUNK_OVERLAP=64
+NEXUS_TOP_K=5
+NEXUS_RERANK_TOP_K=3
