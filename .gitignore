@@ -16,5 +16,3 @@ htmlcov/
 *.log
 
 PROJECT_ANALYSIS.md
-
-tests/data
