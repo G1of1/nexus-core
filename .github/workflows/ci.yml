@@ -12,6 +12,11 @@ jobs:
   test:
     name: Test
     runs-on: ubuntu-latest
+    env:
+      NEXUS_GEMINI_API_KEY: ${{ secrets.NEXUS_GEMINI_API_KEY }}
+      NEXUS_QDRANT_URL: ${{ secrets.NEXUS_QDRANT_URL }}
+      NEXUS_QDRANT_API_KEY: ${{ secrets.NEXUS_QDRANT_API_KEY }}
+      NEXUS_QDRANT_COLLECTION: ${{ secrets.NEXUS_QDRANT_COLLECTION }}
 
     steps:
       - name: Check out code
