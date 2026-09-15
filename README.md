@@ -1,6 +1,6 @@
 # Nexus Core
 
-Reusable RAG engine library for the Nexus platform. Independent of FastAPI and designed for dependency injection across APIs, workers, and CLI tools.
+Reusable RAG engine library for the Nexus platform. Designed for dependency injection across APIs, workers, and CLI tools.
 
 ## Architecture
 
